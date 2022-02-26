@@ -33,5 +33,4 @@ var getElementsByClassName = function(className, node) {
 
   return result;
 
-
 };
