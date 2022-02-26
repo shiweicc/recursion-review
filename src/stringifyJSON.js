@@ -16,10 +16,12 @@ var stringifyJSON = function(obj) {
   var isNumber = function (value) {
     return typeof value === 'number';
   };
+
   // case for number and boolean and string
   var checkData = function (value) {
     return isBoolean(value) || isString(value) || isNumber(value);
   };
+
   // concat the value with quotes
   if (checkData(obj)) {
     //var quote = isString(obj) ? '' : '"';
@@ -42,6 +44,7 @@ var stringifyJSON = function(obj) {
     var quote = '';
     return quote + null + quote;
   }
+
   // case for edge case
   // if data type is undefined or function, avoid the edge
   // create a function expression called isEdge
@@ -56,6 +59,7 @@ var stringifyJSON = function(obj) {
   var isEdge = function (value) {
     return isFunction(value) || isUndefined(value);
   };
+
   // case for array
   // create an empty string named resultforArr
   // use _.each to iterate the item within the array
@@ -112,5 +116,4 @@ var stringifyJSON = function(obj) {
     var rightCurly = '}';
     return leftCurly + removeComma(resultforObj) + rightCurly;
   }
-
 };
